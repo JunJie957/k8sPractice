@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: redis-pvc-pod
+
+spec:
+  volumes:
+  - name: redis-pvc-vol
+    persistentVolumeClaim:
+      claimName: host-15m-pvc
+
+  containers:
+    - name: redis-pvc-pod
+      image: redis:latest
+      ports:
+      - containerPort: 6379
+      volumeMounts:
+      - name: redis-pvc-vol 
+        mountPath: /tmp

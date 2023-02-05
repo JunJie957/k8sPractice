@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nfs-static-ngx
+
+spec:
+  volumes:
+  - name: nfs-pvc-vol
+    persistentVolumeClaim:
+      claimName: nfs-static-pvc
+
+  containers:
+    - name: nfs-pvc-ngx
+      image: nginx:alpine
+      volumeMounts:
+        - name: nfs-pvc-vol
+          mountPath: /tmp

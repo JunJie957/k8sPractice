@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: host-20m-pv
+
+spec:
+  storageClassName: local-pv
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 20Mi
+  hostPath:
+    path: /tmp/host-20m-pv/

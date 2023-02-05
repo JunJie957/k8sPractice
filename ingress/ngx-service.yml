@@ -1,10 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
+  namespace: nginx-ingress
   creationTimestamp: null
   labels:
-    app: ngx-svc
-  name: ngx-svc
+    app: ngx-ingress-svc
+  name: ngx-ingress-svc
 spec:
   type: NodePort
   ports:
@@ -12,6 +13,6 @@ spec:
     protocol: TCP
     targetPort: 80
   selector:
-    app: ngx-dep
+    app: nginx-kic-dep
 status:
   loadBalancer: {}

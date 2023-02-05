@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: host-30m-pv
+
+spec:
+  storageClassName: local-pv
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 30Mi
+  hostPath:
+    path: /tmp/host-30m-pv/
