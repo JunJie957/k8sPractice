@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nfs-dynamic-ngx
+
+spec:
+  volumes:
+  - name: nfs-dynamic-pvc-vol
+    persistentVolumeClaim:
+      claimName: nfs-dyn-10m-pvc
+
+  containers:
+    - name: nfs-dynamic-pvc-ngx
+      image: nginx:alpine
+      volumeMounts:
+        - name: nfs-dynamic-pvc-vol
+          mountPath: /tmp

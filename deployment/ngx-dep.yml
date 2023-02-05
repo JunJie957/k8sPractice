@@ -6,7 +6,8 @@ metadata:
     app: ngx-dep
   name: ngx-dep
 spec:
-  replicas: 2
+  minReadySeconds: 15
+  replicas: 3
   selector:
     matchLabels:
       app: ngx-dep
@@ -23,10 +24,10 @@ spec:
           name: ngx-conf
       containers:
       - image: nginx:alpine
-        name: nginx
+        name: nginx-v2
         resources: {}
         ports:
-        - containerPort: 80
+        - containerPort: 8080
         volumeMounts:
         - mountPath: /etc/nginx/conf.d
           name: ngx-conf-vol

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-pv-svc
+
+spec:
+  selector:
+    app: redis-pv-sts
+
+  ports:
+  - port: 6379
+    protocol: TCP
+    targetPort: 6379
