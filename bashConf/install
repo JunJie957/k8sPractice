@@ -1,0 +1,7 @@
+#!/bin/bash
+
+yum -y install bash-completion 
+source /usr/share/bash-completion/bash_completion
+source <(kubectl completion bash | sed s/kubectl/k/g)
+echo "alias k='kubectl'" >> ~/.bashrc
+echo "source <(kubectl completion bash)" >> ~/.bashrc
