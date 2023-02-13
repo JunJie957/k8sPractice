@@ -1,2 +1,4 @@
 export KUBECONFIG=/etc/kubernetes/admin.conf
 alias k='kubectl'
+source <(kubectl completion bash)
+export KUBE_EDITOR="/usr/bin/vim"

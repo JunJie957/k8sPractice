@@ -1,7 +1,10 @@
 #!/bin/bash
 
 yum -y install bash-completion 
+
 source /usr/share/bash-completion/bash_completion
 source <(kubectl completion bash)
+
 echo "alias k='kubectl'" >> ~/.bashrc
 echo "source <(kubectl completion bash)" >> ~/.bashrc
+echo "export KUBE_EDITOR="/usr/bin/vim"" >> ~/.bashrc
